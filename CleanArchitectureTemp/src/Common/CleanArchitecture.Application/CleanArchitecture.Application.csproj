@@ -26,9 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Comments\EventHandler\" />
     <Folder Include="Common\Caching\" />
-    <Folder Include="DefaultSetting\EventHandler\" />
   </ItemGroup>
 
   <ItemGroup>
