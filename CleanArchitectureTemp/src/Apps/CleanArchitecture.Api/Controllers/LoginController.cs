@@ -1,8 +1,10 @@
 ﻿using CleanArchitecture.Application.ApplicationUser.Queries.GetToken;
 using CleanArchitecture.Application.Common.Models;
 using CleanArchitecture.Application.Dto;
+using CleanArchitecture.Domain.Entities;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,6 +26,18 @@ namespace CleanArchitecture.Api.Controllers
         public async Task<ActionResult<ServiceResult<LoginResponse>>> Login(GetTokenQuery query, CancellationToken cancellationToken)
         {
             return Ok(await Mediator.Send(query, cancellationToken));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [EnableCors("AllowOrigin")]
+        public async Task<ActionResult<ServiceResult<List<User>>>> GetMember( CancellationToken cancellationToken)
+        {
+            return Ok(await Mediator.Send( new GetMemberQuery(),cancellationToken));
         }
 
         ///// <summary>
